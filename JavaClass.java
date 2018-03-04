@@ -3,6 +3,7 @@ import java.awt.Frame;
 import java.awt.ScrollPane;
 import java.awt.TextField;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.rmi.Remote;
@@ -24,7 +25,9 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.sun.javafx.runtime.SystemProperties;
+// import com.sun.javafx.runtime.SystemProperties;
+
+// import sun.awt.shell.Win32ShellFolder2.SystemIcon;
 
 // import com.sun.xml.internal.bind.v2.runtime.reflect.ListIterator;
 
@@ -230,18 +233,28 @@ public class JavaClass{
 		// f.setBounds(30, 30, 250, 120);
 		// f.setVisible(true);
 
-		Class.forName("com.mysql.jdbc.Driver");
-		try{
-			connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_person", "root","123456" );
-			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery("select * from person");
-			while(rs.next()){
-				System.out.println(rs.getInt(1)+"\t"+rs.getInt(2)+"\t"+rs.getString(3)+"\t"+rs.getInt(4));
-			}
+		// Class.forName("com.mysql.jdbc.Driver");
+		// try{
+		// 	connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_person", "root","123456" );
+		// 	Statement stmt = conn.createStatement();
+		// 	ResultSet rs = stmt.executeQuery("select * from person");
+		// 	while(rs.next()){
+		// 		System.out.println(rs.getInt(1)+"\t"+rs.getInt(2)+"\t"+rs.getString(3)+"\t"+rs.getInt(4));
+		// 	}
 
-		}finally{
+		// }finally{
 			
-		}
+		// }
+
+		File file = new File(".");
+		System.out.println(file.getName());
+		System.out.println(file.getParent());
+		System.out.println(file.getAbsoluteFile());
+		System.out.println(file.getAbsoluteFile().getParent());
+		File tempFile = File.createTempFile("aaa",".txt",file);
+		tempFile.deleteOnExit();
+		File newFile = new File(System.currentTimeMillis()+"");
+		System.out.println("newFile cunzai?:"+newFile.exists());
 
 
 
