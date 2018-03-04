@@ -25,6 +25,8 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.sun.scenario.animation.shared.FiniteClipEnvelope;
+
 // import com.sun.javafx.runtime.SystemProperties;
 
 // import sun.awt.shell.Win32ShellFolder2.SystemIcon;
@@ -235,7 +237,7 @@ public class JavaClass{
 
 		// Class.forName("com.mysql.jdbc.Driver");
 		// try{
-		// 	connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_person", "root","123456" );
+		// 	connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_person","root","123456" );
 		// 	Statement stmt = conn.createStatement();
 		// 	ResultSet rs = stmt.executeQuery("select * from person");
 		// 	while(rs.next()){
@@ -255,7 +257,18 @@ public class JavaClass{
 		tempFile.deleteOnExit();
 		File newFile = new File(System.currentTimeMillis()+"");
 		System.out.println("newFile cunzai?:"+newFile.exists());
-
+		newFile.createNewFile();
+		newFile.mkdir();
+		String[] fileList = file.list();
+		System.out.println("=============current file and location=====");
+		for (String fileName : fileList) {
+			System.out.println(fileName);
+		}
+		File[] roots = File.listRoots();
+		System.out.println("===============root of system=======");
+		for (File root : roots) {
+			System.out.println(root);
+		}
 
 
 
