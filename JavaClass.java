@@ -5,7 +5,10 @@ import java.awt.TextField;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.rmi.Remote;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -20,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Scanner;
+import java.util.SortedMap;
 import java.util.TimeZone;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -248,30 +252,103 @@ public class JavaClass{
 			
 		// }
 
-		File file = new File(".");
-		System.out.println(file.getName());
-		System.out.println(file.getParent());
-		System.out.println(file.getAbsoluteFile());
-		System.out.println(file.getAbsoluteFile().getParent());
-		File tempFile = File.createTempFile("aaa",".txt",file);
-		tempFile.deleteOnExit();
-		File newFile = new File(System.currentTimeMillis()+"");
-		System.out.println("newFile cunzai?:"+newFile.exists());
-		newFile.createNewFile();
-		newFile.mkdir();
-		String[] fileList = file.list();
-		System.out.println("=============current file and location=====");
-		for (String fileName : fileList) {
-			System.out.println(fileName);
-		}
-		File[] roots = File.listRoots();
-		System.out.println("===============root of system=======");
-		for (File root : roots) {
-			System.out.println(root);
-		}
+		// File file = new File(".");
+		// System.out.println(file.getName());
+		// System.out.println(file.getParent());
+		// System.out.println(file.getAbsoluteFile());
+		// System.out.println(file.getAbsoluteFile().getParent());
+		// File tempFile = File.createTempFile("aaa",".txt",file);
+		// tempFile.deleteOnExit();
+		// File newFile = new File(System.currentTimeMillis()+"");
+		// System.out.println("newFile cunzai?:"+newFile.exists());
+		// newFile.createNewFile();
+		// newFile.mkdir();
+		// String[] fileList = file.list();
+		// System.out.println("=============current file and location=====");
+		// for (String fileName : fileList) {
+		// 	System.out.println(fileName);
+		// }
+		// File[] roots = File.listRoots();
+		// System.out.println("===============root of system=======");
+		// for (File root : roots) {
+		// 	System.out.println(root);
+		// }
+
+		// try(
+		// 	FileWriter fw = new FileWriter("poem.txt")){
+		// 	fw.write("chuangqianmingyueguang\n");
+		// 	fw.write("yishidishangshuang\n");
+		// 	fw.write("jutouwangmingyue\n");
+		// 	fw.write("ditousiguxiang\n");
+		// }catch(IOException e){
+		// 	e.printStackTrace();
+		// }
+
+		// Process p = Runtime.getRuntime().exec("javac");
+		// try{
+		// 	BufferedReader br = new BufferedReader(new InputStreamReader(p.getErrorStream()));{
+		// 		String buff = null;
+		// 		while((buff=br.readLine())!=null){
+		// 			System.out.println(buff);
+
+		// 		}
+		// 	}
+		// }catch(IOException e){
+		// 	e.printStackTrace();
+		// }
+
+		// SortedMap<String,Charset> map = Charset.availableCharsets();
+		// for (String alias : map.keySet()) {
+		// 	System.out.println(alias+"---->"+map.get(alias));
+		// }
 
 
+		// // 创建三个任务  
+        // Runnable printA = new PrintChar('a', 10);  
+        // Runnable printB = new PrintChar('b', 10);  
+        // Runnable print100 = new PrintNum(10);  
+        // // 创建三个线程  
+        // Thread thread1 = new Thread(printA);  
+        // Thread thread2 = new Thread(printB);  
+        // Thread thread3 = new Thread(print100);  
+        // // 启动三个线程，将同时执行创建的三个任�?  
+        // thread1.start();  
+        // thread2.start();  
+		// thread3.start();  
+		
 
-	}
+
+    }  
+
 	
 }
+
+// class PrintChar implements Runnable {
+//     private char charToPrint;
+//     private int times;  
+
+// 	public PrintChar(char charToPrint, int times) {  
+//         this.charToPrint = charToPrint;  
+//         this.times = times;  
+//     }
+// 	@Override
+//     public void run() {
+//         for (int i = 0; i <times; i++) {  
+//             System.out.print(charToPrint);  
+//         }  
+//     }  
+// }  
+
+// class PrintNum implements Runnable {  
+//     private int lastNum;
+//     public PrintNum(int lastNum) {  
+//         this.lastNum = lastNum;  
+//     }  
+  
+//     @Override  
+//     public void run() {  
+//         for (int i = 0; i <lastNum; i++) {  
+// 			System.out.print(""+i);
+// 		}
+//     }
+// }
