@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.Socket;
 import java.nio.charset.Charset;
 import java.rmi.Remote;
 import java.sql.DriverManager;
@@ -44,6 +45,8 @@ import java.util.Arrays;
 
 
 public class JavaClass{
+
+
 	public static void main(String[] args)
 	throws Exception {
 		// Map<String,String> env = System.getenv();
@@ -311,14 +314,28 @@ public class JavaClass{
         // Thread thread1 = new Thread(printA);  
         // Thread thread2 = new Thread(printB);  
         // Thread thread3 = new Thread(print100);  
-        // // 启动三个线程，将同时执行创建的三个任�?  
+        // 
         // thread1.start();  
         // thread2.start();  
 		// thread3.start();  
+
+
+		// String str = "E:/tmp/";
+		// String front = str.replace("/", "///");
+		// String res = front.substring(0,front.length()-1);
+		// System.out.println(res);
+
+		Socket socket = new Socket("127.0.0.1",30000);
+		BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+		String line = br.readLine();
+		System.out.println("Data from Server:"+line);
+		br.close();
+		socket.close();
 		
 
 
-    }  
+	}  
+	
 
 	
 }

@@ -13,5 +13,10 @@ public class Hello{
 	public static void main(String[] args) {
 		System.out.println(Day.Sunday);
 		System.out.print(Day.Monday);
+		String str = "E:/tmp/";
+		String front = str.replace("/", "///");
+		String res = front.substring(0,front.length()-1);
+		System.out.println(res);
+
 	}
 }
