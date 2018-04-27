@@ -1,7 +1,18 @@
+import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.net.URL;
+import java.util.Enumeration;
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
 import javax.sql.rowset.Joinable;
+
+import com.sun.java.util.jar.pack.Package.Class.Method;
+import com.sun.javafx.runtime.SystemProperties;
+import com.sun.org.apache.xerces.internal.dom.PSVIDOMImplementationImpl;
+
+import sun.misc.Launcher;
+import sun.security.jgss.spi.MechanismFactory;
 
 // public class ThreadClass extends Thread{
 //     private int i;
@@ -91,3 +102,84 @@ import javax.sql.rowset.Joinable;
 //     }
 // }
 
+// class MyTest{
+//     static{
+//         System.out.println("MyTest类的静态初始化块");
+//     }
+//     static final String compileConstant = System.currentTimeMillis() + "fengkaungJAVA";
+// }
+// public class ThreadClass{
+//     public static void main(String[] args)throws ClassNotFoundException{
+//         // System.out.println(MyTest.compileConstant);
+//         ClassLoader cl = ClassLoader.getSystemClassLoader();
+//         cl.loadClass("MyTest");
+//         System.out.println("系统加载MyTest类");
+//         Class.forName("MyTest");
+//     }
+// }
+
+// public class ThreadClass{
+
+//     public static void main(String[] args)
+//     throws IOException{
+//         // URL[] urls = Launcher.getBootstrapClassPath().getURLs();
+//         // for(int i=0;i<urls.length;i++){
+//         //     System.out.println(urls[i].toExternalForm());
+//         // }
+//         ClassLoader systemLoader = ClassLoader.getSystemClassLoader();
+//         System.out.println("系统类加载器："+systemLoader);
+//         Enumeration<URL> eml = systemLoader.getResources("");
+//         while(eml.hasMoreElements()){
+//             System.out.println(eml.nextElement());
+//         }
+//         ClassLoader extensionLader = systemLoader.getParent();
+//         System.out.println("扩展类加载器："+extensionLader);
+//         System.out.println("扩展类加载器的加载路径："+System.getProperty("java.ext.dirs"));
+//         System.out.println("扩展类加载器的parent："+extensionLader.getParent);
+
+//     }
+
+
+// }
+// @SuppressWarnings(value="unchecked")
+// @Deprecated
+public class ThreadClass{
+    private ThreadClass(){}
+    private ThreadClass(String name){
+        System.out.println("zhixing youcan gouzaoqi");
+    }
+    public void info(){
+        System.out.println("zhixing wucan info fangfa");
+    }
+    public void info(String str){
+        System.out.println("zhixing youcan fangfa,str="+str);
+    }
+    class Inner{}
+    public static void main(String[] args)
+        throws Exception{
+        // Class<ThreadClass> calzz = ThreadClass.class;
+        // Constructor[] ctors = calzz.getDeclaredConstructors();
+        // System.out.println("ThreadClass de quanbugouzaoqi:");
+        // for(Constructor c:ctors){
+        //     System.out.println(c);
+        // }
+        // Constructor[] pctors = calzz.getConstructors();
+        // System.out.println("ThreadClass de quanbu public gouzaoqi:");
+        // for(Constructor pc:pctors){
+        //     System.out.println(pc);
+        // }
+        // Method[] mtds = calzz.getMethods();
+        // System.out.println("ThreadClass de quanbu public fangfa:");
+        // for(Method m:mtds){
+        //     System.out.println(m);
+        // }
+
+        Class <?> jFrameClazz = Class.forName("javax.swing.JFrame");
+        Constructor ctor = jFrameClazz.getConstructor(String.class);
+        Object obj = ctor.newInstance("ceshichuangkou");
+        System.out.println(obj);
+
+
+    }
+
+}
