@@ -1,5 +1,11 @@
 import java.lang.reflect.Field;
+import java.nio.file.Paths;
 import java.util.Scanner;
+import java.util.Arrays;
+
+import com.sun.javafx.runtime.SystemProperties;
+import com.sun.jndi.url.iiop.iiopURLContextFactory;
+
 import java.lang.reflect.Array;
 
 
@@ -36,17 +42,28 @@ public class Reflect{
         //     System.err.println(e);
             
         // }
-        Scanner in = new Scanner(System.in);
-        System.out.println("What's your name?");
-        String name = in.nextLine();
+        // Scanner in = new Scanner(System.in);
+        // System.out.println("What's your name?");
+        // String name = in.nextLine();
 
-        System.out.println("What's your age?");
-        int age = in.nextInt();
+        // System.out.println("What's your age?");
+        // int age = in.nextInt();
 
-        System.out.println("Hello: "+name+"you are :"+age+"years old!");
+        // System.out.println("Hello: "+name+"you are :"+age+"years old!");
 
-        in.close();
+        // in.close();
 
+        // Scanner in = new Scanner(Paths.get("file.txt"),"UTF-8");
+        // while(in.hasNext()){
+        //     System.out.println(in.nextLine());
+        // }
+        // in.close();
+        int a[] = {1,5,9,3,7,8,6,4};
+        // sort(a);
+        for(int i:a){
+           System.out.println(i);
+        }
+                   
 
     }
 }
